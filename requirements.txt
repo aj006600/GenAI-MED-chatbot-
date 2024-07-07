@@ -1,0 +1,18 @@
+ipykernel
+ipywidgets
+langchain
+PyMuPDF
+chromadb
+sentence-transformers
+llama-cpp-python
+openai
+langchain
+streamlit
+unstructured
+unstructured[pdf]
+# openai
+chromadb
+# tiktoken
+sentence-transformers 
+langchain-community
+langchain-openai
