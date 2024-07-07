@@ -4,10 +4,10 @@ cd desktop/GenAI/main/MED-chatbot
 streamlit run MED-chatbot_streamlit_demo.py
 '''
 import os, tempfile
-import getpass
 from pathlib import Path
 from VectorDB import vectordb_
 from Local_LLM import load_vectordb_, local_llm_
+from Virtual_Streamer import vs
 
 from langchain.chains import RetrievalQA, ConversationalRetrievalChain
 from langchain.callbacks.manager import CallbackManager
@@ -94,6 +94,10 @@ def query_llm_direct(query, llm):
     st.session_state.messages.append((query, result))
     return result
 
+def vedio(response):
+    vs.main(response)
+    return
+
 def boot():
     if "messages" not in st.session_state:
         st.session_state.messages = []    
@@ -107,6 +111,7 @@ def boot():
         else:
             response = query_llm_direct(query, llm)
         st.chat_message("ai").write(response)
+        vedio(response)
 
 if __name__ == '__main__':
     boot()
